@@ -1,0 +1,27 @@
+@import "../../scss/variables.scss";
+
+.header {
+  background-color: $header-background-color;
+}
+
+.navbarItem {
+  color: $navbar-item-color;
+}
+
+.headerLogo {
+  color: $header-logo-color;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.navbarBrand {
+  justify-content: center;
+}
+
+@media (min-width: $desktop) {
+  .headerLogo {
+    font-size: 4rem;
+  }
+}
