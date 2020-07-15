@@ -1,12 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
+import { Footer } from "./Footer";
 import { Header } from "./Header";
-import "./all.sass";
+import "../../scss/all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div>

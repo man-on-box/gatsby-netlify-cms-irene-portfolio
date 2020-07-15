@@ -1,9 +1,8 @@
 import React, { FC, useState } from "react";
 import cx from "classnames";
 import { Link } from "gatsby";
-import { Navbar } from "../Navbar";
 import styles from "./index.module.scss";
-import github from "../../img/github-icon.svg";
+import github from "../../../img/github-icon.svg";
 
 const navbarLinks = [
   { label: "About", to: "/about" },
@@ -12,6 +11,9 @@ const navbarLinks = [
   { label: "Contact", to: "/contact" },
   { label: "Form Examples", to: "/contact/examples" },
 ];
+
+const isActiveNavItemClassname = (path: string) =>
+  window.location.pathname.includes(path) ? "is-active" : "";
 
 const Header: FC = () => {
   const [active, setActive] = useState(false);
@@ -44,7 +46,11 @@ const Header: FC = () => {
         >
           <div className="navbar-start has-text-centered">
             {navbarLinks.map(({ label, to }) => (
-              <Link className="navbar-item" to={to}>
+              <Link
+                key={label}
+                className={cx("navbar-item", isActiveNavItemClassname(to))}
+                to={to}
+              >
                 {label}
               </Link>
             ))}
@@ -52,7 +58,7 @@ const Header: FC = () => {
           <div className="navbar-end has-text-centered">
             <a
               className="navbar-item"
-              href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+              href="https://github.com/man-on-box/gatsby-netlify-cms-irene-portfolio"
               target="_blank"
               rel="noopener noreferrer"
             >
