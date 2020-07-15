@@ -823,6 +823,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___featuredimage___id'
   | 'childMarkdownRemark___frontmatter___featuredimage___children'
   | 'childMarkdownRemark___frontmatter___tags'
+  | 'childMarkdownRemark___frontmatter___leftalignimage'
+  | 'childMarkdownRemark___frontmatter___featureImage___image'
+  | 'childMarkdownRemark___frontmatter___featureImage___alt'
   | 'childMarkdownRemark___frontmatter___alt'
   | 'childMarkdownRemark___excerpt'
   | 'childMarkdownRemark___rawMarkdownBody'
@@ -1806,6 +1809,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents'
   | 'frontmatter___featuredimage___childMarkdownRemark___children'
   | 'frontmatter___tags'
+  | 'frontmatter___leftalignimage'
+  | 'frontmatter___featureImage___image'
+  | 'frontmatter___featureImage___alt'
   | 'frontmatter___alt'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -1950,6 +1956,8 @@ export type MarkdownRemarkFrontmatter = {
   featuredpost?: Maybe<Scalars['Boolean']>;
   featuredimage?: Maybe<File>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  leftalignimage?: Maybe<Scalars['Boolean']>;
+  featureImage?: Maybe<MarkdownRemarkFrontmatterFeatureImage>;
   alt?: Maybe<Scalars['String']>;
 };
 
@@ -1959,6 +1967,16 @@ export type MarkdownRemarkFrontmatterDateArgs = {
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterFeatureImage = {
+  image?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type MarkdownRemarkFrontmatterFeatureImageFilterInput = {
+  image?: Maybe<StringQueryOperatorInput>;
+  alt?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MarkdownRemarkFrontmatterFilterInput = {
@@ -1979,6 +1997,8 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   featuredpost?: Maybe<BooleanQueryOperatorInput>;
   featuredimage?: Maybe<FileFilterInput>;
   tags?: Maybe<StringQueryOperatorInput>;
+  leftalignimage?: Maybe<BooleanQueryOperatorInput>;
+  featureImage?: Maybe<MarkdownRemarkFrontmatterFeatureImageFilterInput>;
   alt?: Maybe<StringQueryOperatorInput>;
 };
 
