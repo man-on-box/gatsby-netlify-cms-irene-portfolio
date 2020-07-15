@@ -4,6 +4,9 @@ path: /about
 title: Hello
 image: /img/blog-index.jpg
 leftalignimage: false
+featureImage:
+  image: /img/chemex.jpg
+  alt: featured-image
 ---
 As you must imagine, my name is Irene. I've always loved puzzles. I am the kind of person who would spend hours and hours finishing a crossword, finding the answer of a riddle or trying to figure out a formula in Excel that does exactly what I want.​
 
