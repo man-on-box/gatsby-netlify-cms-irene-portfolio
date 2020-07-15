@@ -150,21 +150,8 @@ collections:
               default: "about-page",
             }
           - { label: "Title", name: "title", widget: "string" }
-          - {
-              label: Image,
-              name: image,
-              widget: object,
-              fields:
-                [
-                  { label: Image, name: image, widget: image },
-                  { label: Alt, name: alt, widget: string },
-                  {
-                    label: "Left align image",
-                    name: "leftalignimage",
-                    widget: "boolean",
-                  },
-                ],
-            }
+          - { label: Image, name: image, widget: image }
+          - { label: Alt, name: alt, widget: string }
           - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/products/index.md"
         label: "Products Page"
