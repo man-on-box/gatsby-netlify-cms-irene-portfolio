@@ -1,41 +1,24 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import { HTMLContent } from "../components/Content";
+import { About } from "../screens/About";
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content;
+const AboutPage = ({ data: { markdownRemark } }) => {
+  const { frontmatter, html } = markdownRemark;
 
-  return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data;
-  const { frontmatter } = data.markdownRemark;
-
-  console.log(frontmatter);
+  const imageInfo = {
+    image: frontmatter.image,
+    alt: frontmatter.alt,
+  };
 
   return (
     <Layout>
-      <AboutPageTemplate
+      <About
         contentComponent={HTMLContent}
-        title={post?.frontmatter?.title}
-        content={post.html}
+        title={frontmatter.title}
+        imageInfo={imageInfo}
+        content={html}
       />
     </Layout>
   );
