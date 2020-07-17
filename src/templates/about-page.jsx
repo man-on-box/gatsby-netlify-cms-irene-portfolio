@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
-import { About } from "../screens/About";
+import { About } from "../screens/About/index.tsx";
 
 const AboutPage = ({ data: { markdownRemark } }) => {
   const { frontmatter, html } = markdownRemark;

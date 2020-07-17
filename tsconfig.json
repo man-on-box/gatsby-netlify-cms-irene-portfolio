@@ -22,7 +22,16 @@
     "strict": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es5"
+    "target": "es5",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@img/*": ["src/img/*"],
+      "@pages": ["src/pages/*"],
+      "@scss": ["src/scss/*"],
+      "@screens": ["src/screens/*"],
+      "@templates": ["src/templates/*"]
+    }
   },
   "include": ["src", "types"],
   "exclude": ["node_modules"]

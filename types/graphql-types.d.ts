@@ -695,7 +695,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
   | 'childMarkdownRemark___frontmatter___templateKey'
-  | 'childMarkdownRemark___frontmatter___path'
   | 'childMarkdownRemark___frontmatter___image___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___image___absolutePath'
   | 'childMarkdownRemark___frontmatter___image___relativePath'
@@ -733,12 +732,16 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___image___id'
   | 'childMarkdownRemark___frontmatter___image___children'
   | 'childMarkdownRemark___frontmatter___heading'
+  | 'childMarkdownRemark___frontmatter___subheading'
+  | 'childMarkdownRemark___frontmatter___mainpitch___title'
+  | 'childMarkdownRemark___frontmatter___mainpitch___description'
   | 'childMarkdownRemark___frontmatter___description'
   | 'childMarkdownRemark___frontmatter___intro___blurbs'
   | 'childMarkdownRemark___frontmatter___intro___heading'
   | 'childMarkdownRemark___frontmatter___intro___description'
   | 'childMarkdownRemark___frontmatter___main___heading'
   | 'childMarkdownRemark___frontmatter___main___description'
+  | 'childMarkdownRemark___frontmatter___path'
   | 'childMarkdownRemark___frontmatter___testimonials'
   | 'childMarkdownRemark___frontmatter___testimonials___author'
   | 'childMarkdownRemark___frontmatter___testimonials___quote'
@@ -781,9 +784,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___pricing___heading'
   | 'childMarkdownRemark___frontmatter___pricing___description'
   | 'childMarkdownRemark___frontmatter___pricing___plans'
-  | 'childMarkdownRemark___frontmatter___subheading'
-  | 'childMarkdownRemark___frontmatter___mainpitch___title'
-  | 'childMarkdownRemark___frontmatter___mainpitch___description'
   | 'childMarkdownRemark___frontmatter___date'
   | 'childMarkdownRemark___frontmatter___featuredpost'
   | 'childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName'
@@ -1595,7 +1595,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
   | 'frontmatter___templateKey'
-  | 'frontmatter___path'
   | 'frontmatter___image___sourceInstanceName'
   | 'frontmatter___image___absolutePath'
   | 'frontmatter___image___relativePath'
@@ -1658,6 +1657,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___image___childMarkdownRemark___tableOfContents'
   | 'frontmatter___image___childMarkdownRemark___children'
   | 'frontmatter___heading'
+  | 'frontmatter___subheading'
+  | 'frontmatter___mainpitch___title'
+  | 'frontmatter___mainpitch___description'
   | 'frontmatter___description'
   | 'frontmatter___intro___blurbs'
   | 'frontmatter___intro___blurbs___text'
@@ -1668,6 +1670,7 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___main___image1___alt'
   | 'frontmatter___main___image2___alt'
   | 'frontmatter___main___image3___alt'
+  | 'frontmatter___path'
   | 'frontmatter___testimonials'
   | 'frontmatter___testimonials___author'
   | 'frontmatter___testimonials___quote'
@@ -1739,9 +1742,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___pricing___plans___items'
   | 'frontmatter___pricing___plans___plan'
   | 'frontmatter___pricing___plans___price'
-  | 'frontmatter___subheading'
-  | 'frontmatter___mainpitch___title'
-  | 'frontmatter___mainpitch___description'
   | 'frontmatter___date'
   | 'frontmatter___featuredpost'
   | 'frontmatter___featuredimage___sourceInstanceName'
@@ -1935,17 +1935,17 @@ export type MarkdownRemarkFilterInput = {
 export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
   templateKey?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
   heading?: Maybe<Scalars['String']>;
+  subheading?: Maybe<Scalars['String']>;
+  mainpitch?: Maybe<MarkdownRemarkFrontmatterMainpitch>;
   description?: Maybe<Scalars['String']>;
   intro?: Maybe<MarkdownRemarkFrontmatterIntro>;
   main?: Maybe<MarkdownRemarkFrontmatterMain>;
+  path?: Maybe<Scalars['String']>;
   testimonials?: Maybe<Array<Maybe<MarkdownRemarkFrontmatterTestimonials>>>;
   full_image?: Maybe<File>;
   pricing?: Maybe<MarkdownRemarkFrontmatterPricing>;
-  subheading?: Maybe<Scalars['String']>;
-  mainpitch?: Maybe<MarkdownRemarkFrontmatterMainpitch>;
   date?: Maybe<Scalars['Date']>;
   featuredpost?: Maybe<Scalars['Boolean']>;
   featuredimage?: Maybe<File>;
@@ -1964,17 +1964,17 @@ export type MarkdownRemarkFrontmatterDateArgs = {
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   templateKey?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
   heading?: Maybe<StringQueryOperatorInput>;
+  subheading?: Maybe<StringQueryOperatorInput>;
+  mainpitch?: Maybe<MarkdownRemarkFrontmatterMainpitchFilterInput>;
   description?: Maybe<StringQueryOperatorInput>;
   intro?: Maybe<MarkdownRemarkFrontmatterIntroFilterInput>;
   main?: Maybe<MarkdownRemarkFrontmatterMainFilterInput>;
+  path?: Maybe<StringQueryOperatorInput>;
   testimonials?: Maybe<MarkdownRemarkFrontmatterTestimonialsFilterListInput>;
   full_image?: Maybe<FileFilterInput>;
   pricing?: Maybe<MarkdownRemarkFrontmatterPricingFilterInput>;
-  subheading?: Maybe<StringQueryOperatorInput>;
-  mainpitch?: Maybe<MarkdownRemarkFrontmatterMainpitchFilterInput>;
   date?: Maybe<DateQueryOperatorInput>;
   featuredpost?: Maybe<BooleanQueryOperatorInput>;
   featuredimage?: Maybe<FileFilterInput>;
@@ -2967,6 +2967,14 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___alias____src'
+  | 'pluginCreator___pluginOptions___alias____components'
+  | 'pluginCreator___pluginOptions___alias____img'
+  | 'pluginCreator___pluginOptions___alias____pages'
+  | 'pluginCreator___pluginOptions___alias____scss'
+  | 'pluginCreator___pluginOptions___alias____screens'
+  | 'pluginCreator___pluginOptions___alias____templates'
+  | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___name'
@@ -3173,6 +3181,14 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___destinationDir'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___alias____src'
+  | 'pluginOptions___alias____components'
+  | 'pluginOptions___alias____img'
+  | 'pluginOptions___alias____pages'
+  | 'pluginOptions___alias____scss'
+  | 'pluginOptions___alias____screens'
+  | 'pluginOptions___alias____templates'
+  | 'pluginOptions___extensions'
   | 'pluginOptions___fileName'
   | 'pluginOptions___path'
   | 'pluginOptions___name'
@@ -3298,6 +3314,8 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  alias?: Maybe<SitePluginPluginOptionsAlias>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   fileName?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
@@ -3309,8 +3327,30 @@ export type SitePluginPluginOptions = {
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
+export type SitePluginPluginOptionsAlias = {
+  _src?: Maybe<Scalars['String']>;
+  _components?: Maybe<Scalars['String']>;
+  _img?: Maybe<Scalars['String']>;
+  _pages?: Maybe<Scalars['String']>;
+  _scss?: Maybe<Scalars['String']>;
+  _screens?: Maybe<Scalars['String']>;
+  _templates?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsAliasFilterInput = {
+  _src?: Maybe<StringQueryOperatorInput>;
+  _components?: Maybe<StringQueryOperatorInput>;
+  _img?: Maybe<StringQueryOperatorInput>;
+  _pages?: Maybe<StringQueryOperatorInput>;
+  _scss?: Maybe<StringQueryOperatorInput>;
+  _screens?: Maybe<StringQueryOperatorInput>;
+  _templates?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  alias?: Maybe<SitePluginPluginOptionsAliasFilterInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;

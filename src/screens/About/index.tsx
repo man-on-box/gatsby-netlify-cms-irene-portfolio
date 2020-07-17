@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
-import { HTMLContent } from "../components/Content";
+import cx from "classnames";
+import PreviewCompatibleImage from "@components/PreviewCompatibleImage";
+import { HTMLContent } from "@components/Content";
+import { SectionHeader } from "@components/SectionHeader";
 import { ImageInfo } from "types/ImageInfo";
+import styles from "./index.module.scss";
 
 export interface AboutProps {
   title: string;
@@ -10,14 +13,12 @@ export interface AboutProps {
 }
 
 const About: FC<AboutProps> = ({ title, imageInfo, content }) => (
-  <section className="section section--gradient">
+  <section className={cx(styles.section, "section")}>
     <div className="container">
       <div className="columns">
         <div className="column">
           <div className="section">
-            <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-              {title}
-            </h2>
+            <SectionHeader>{title}</SectionHeader>
 
             <HTMLContent className="content" content={content} />
           </div>

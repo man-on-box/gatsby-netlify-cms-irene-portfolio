@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import cx from "classnames";
 import { Link } from "gatsby";
 import styles from "./index.module.scss";
-import github from "../../../img/github-icon.svg";
+import github from "@img/github-icon.svg";
 
 const navbarLinks = [
   { label: "About", to: "/about" },

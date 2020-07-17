@@ -6,6 +6,21 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-typescript",
+    {
+      resolve: "gatsby-plugin-alias-imports",
+      options: {
+        alias: {
+          "@src": "src",
+          "@components": "src/components",
+          "@img": "src/img",
+          "@pages": "src/pages",
+          "@scss": "src/scss",
+          "@screens": "src/screens",
+          "@templates": "src/templates",
+        },
+        extensions: ["js"],
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {

@@ -1,15 +1,17 @@
 import React, { FC } from "react";
 
-export interface HTMLContentProps {
+interface HTMLContentProps {
   className: string;
   content: string;
 }
 
-export const HTMLContent: FC<HTMLContentProps> = ({ content, className }) => (
+const HTMLContent: FC<HTMLContentProps> = ({ content, className }) => (
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 );
 
-export interface ContentProps {
+export { HTMLContent, HTMLContentProps };
+
+interface ContentProps {
   className: string;
   content: React.ReactNode;
 }
@@ -17,5 +19,7 @@ export interface ContentProps {
 const Content: FC<ContentProps> = ({ content, className }) => (
   <div className={className}>{content}</div>
 );
+
+export { Content, ContentProps };
 
 export default Content;
