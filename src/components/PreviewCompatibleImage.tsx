@@ -1,12 +1,9 @@
 import React, { FC } from "react";
-import Img, { GatsbyImageProps } from "gatsby-image";
+import Img from "gatsby-image";
+import { ImageInfo } from "types/ImageInfo";
 
 export interface PreviewCompatibleImageProps {
-  imageInfo: {
-    alt?: string;
-    image?: { childImageSharp: GatsbyImageProps } | string;
-    childImageSharp?: GatsbyImageProps;
-  };
+  imageInfo: ImageInfo;
 }
 
 const PreviewCompatibleImage: FC<PreviewCompatibleImageProps> = ({

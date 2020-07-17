@@ -1,14 +1,11 @@
 import React, { FC } from "react";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import { HTMLContent } from "../components/Content";
-import { GatsbyImageProps } from "gatsby-image";
+import { ImageInfo } from "types/ImageInfo";
 
 export interface AboutProps {
   title: string;
-  imageInfo: {
-    alt: string;
-    image?: { childImageSharp: GatsbyImageProps } | string;
-  };
+  imageInfo: ImageInfo;
   content: string;
 }
 
