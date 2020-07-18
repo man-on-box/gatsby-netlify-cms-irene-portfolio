@@ -22,12 +22,17 @@ collections:
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "portfolio-piece",
+          default: "portfolio-item",
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Subheading", name: "subheading", widget: "text" }
       - { label: "Image", name: "image", widget: image }
-      - { label: "Left align image", name: "leftalignimage", widget: "boolean" }
+      - {
+          label: "Left align image",
+          name: "leftalignimage",
+          widget: "boolean",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
