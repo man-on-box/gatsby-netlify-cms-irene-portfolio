@@ -45,7 +45,7 @@ const Header: FC = () => {
             {navbarLinks.map(({ label, to }) => (
               <Link
                 key={label}
-                className={cx("navbar-item")}
+                className="navbar-item"
                 activeClassName="is-active"
                 to={to}
               >
