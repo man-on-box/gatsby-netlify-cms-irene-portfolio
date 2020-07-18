@@ -2,14 +2,14 @@ import React, { FC, useState } from "react";
 import cx from "classnames";
 import { Link } from "gatsby";
 import styles from "./index.module.scss";
-import github from "@img/github-icon.svg";
 
 const navbarLinks = [
-  { label: "About", to: "/about" },
-  { label: "Products", to: "/products" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
-  { label: "Form Examples", to: "/contact/examples" },
+  { label: "My work", to: "/" },
+  { label: "Who is Irene?", to: "/about" },
+  { label: "Say hi", to: "/contact" },
+  // { label: "Products", to: "/products" },
+  // { label: "Blog", to: "/blog" },
+  // { label: "Form Examples", to: "/contact/examples" },
 ];
 
 const Header: FC = () => {
@@ -20,7 +20,7 @@ const Header: FC = () => {
   return (
     <section className={cx("section", styles.header)}>
       <div className="container">
-        <div className={cx("navbar-brand", styles.navbarBrand)}>
+        <div className={cx("navbar-brand", styles.justifyContentCenter)}>
           <Link to="/" title="Logo">
             <h1 className={styles.headerLogo}>I AM IRENE</h1>
           </Link>
@@ -39,9 +39,18 @@ const Header: FC = () => {
       <div className="container">
         <div
           id="navMenu"
-          className={cx("navbar-menu", active ? "is-active" : "")}
+          className={cx(
+            "navbar-menu",
+            active ? "is-active" : "",
+            styles.justifyContentCenter
+          )}
         >
-          <div className="navbar-start has-text-centered">
+          <div
+            className={cx(
+              "navbar-start has-text-centered mx-0",
+              styles.justifyContentCenter
+            )}
+          >
             {navbarLinks.map(({ label, to }) => (
               <Link
                 key={label}
@@ -52,18 +61,6 @@ const Header: FC = () => {
                 {label}
               </Link>
             ))}
-          </div>
-          <div className="navbar-end has-text-centered">
-            <a
-              className="navbar-item"
-              href="https://github.com/man-on-box/gatsby-netlify-cms-irene-portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a>
           </div>
         </div>
       </div>
