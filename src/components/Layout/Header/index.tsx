@@ -12,9 +12,6 @@ const navbarLinks = [
   { label: "Form Examples", to: "/contact/examples" },
 ];
 
-const isActiveNavItemClassname = (path: string) =>
-  window && window.location.pathname.includes(path) ? "is-active" : "";
-
 const Header: FC = () => {
   const [active, setActive] = useState(false);
 
@@ -48,7 +45,8 @@ const Header: FC = () => {
             {navbarLinks.map(({ label, to }) => (
               <Link
                 key={label}
-                className={cx("navbar-item", isActiveNavItemClassname(to))}
+                className={cx("navbar-item")}
+                activeClassName="is-active"
                 to={to}
               >
                 {label}
