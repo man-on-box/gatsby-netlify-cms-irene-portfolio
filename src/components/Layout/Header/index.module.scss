@@ -1,0 +1,23 @@
+@import "src/scss/variables.scss";
+
+.header {
+  background-color: $header-background-color;
+}
+
+.navbarBrand {
+  justify-content: center;
+}
+
+.headerLogo {
+  color: $header-logo-color;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+@media (min-width: $desktop) {
+  .headerLogo {
+    font-size: 4rem;
+  }
+}
