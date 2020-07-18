@@ -13,7 +13,7 @@ const navbarLinks = [
 ];
 
 const isActiveNavItemClassname = (path: string) =>
-  !!window && window.location.pathname.includes(path) ? "is-active" : "";
+  window && window.location.pathname.includes(path) ? "is-active" : "";
 
 const Header: FC = () => {
   const [active, setActive] = useState(false);
