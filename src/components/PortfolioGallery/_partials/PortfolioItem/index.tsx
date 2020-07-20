@@ -25,7 +25,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
     onClick={() => navigate(slug)}
   >
     <div
-      className={cx("px-6 py-6", styles.portfolioContent)}
+      className={styles.portfolioContent}
       style={{
         backgroundImage: `url(${
           image.childImageSharp && !Array.isArray(image.childImageSharp.fluid)
@@ -34,18 +34,19 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
         })`,
       }}
     >
-      <p
-        className={cx(
-          styles.textWithBackground,
-          "title is-4 has-text-weight-bold is-bold-light"
-        )}
-      >
-        {title}
-      </p>
-      <p className={cx(styles.textWithBackground, "subtitle is-6")}>
-        {subheading}
-      </p>
-      <div className={styles.overlay} />
+      <div className={cx("px-6 py-6", styles.withOverlay)}>
+        <p
+          className={cx(
+            styles.textWithBackground,
+            "title is-4 has-text-weight-bold is-bold-light"
+          )}
+        >
+          {title}
+        </p>
+        <p className={cx(styles.textWithBackground, "subtitle is-6")}>
+          {subheading}
+        </p>
+      </div>
     </div>
   </div>
 );
