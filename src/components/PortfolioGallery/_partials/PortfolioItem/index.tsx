@@ -37,8 +37,8 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
       <div className={cx("px-6 py-6", styles.withOverlay)}>
         <p
           className={cx(
-            styles.textWithBackground,
-            "title is-4 has-text-weight-bold is-bold-light"
+            "title is-4 has-text-weight-bold is-bold-light",
+            styles.textWithBackground
           )}
         >
           {title}

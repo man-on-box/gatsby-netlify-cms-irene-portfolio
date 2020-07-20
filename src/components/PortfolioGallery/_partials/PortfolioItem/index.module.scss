@@ -33,7 +33,7 @@
 }
 
 .textWithBackground {
-  color: #ffffff;
+  color: #ffffff !important;
   background-color: $text-background-color;
   box-shadow: $text-background-color 0.5rem 0px 0px,
     $text-background-color -0.5rem 0px 0px;
