@@ -39,7 +39,7 @@ export const usePortfolioData = () => {
                 templateKey
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 500, quality: 100) {
+                    fluid(maxWidth: 500, quality: 80) {
                       ...GatsbyImageSharpFluid
                     }
                   }

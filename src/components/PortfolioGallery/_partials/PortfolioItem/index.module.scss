@@ -1,0 +1,27 @@
+.portfolioWrapper {
+  position: relative;
+  height: 375px;
+}
+
+.portfolioContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(70, 40, 36, 0.7);
+}
