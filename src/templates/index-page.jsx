@@ -2,7 +2,8 @@ import { Link, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
-import BlogRoll from "../components/BlogRoll";
+// import BlogRoll from "../components/BlogRoll";
+import { PortfolioGallery } from "../components/PortfolioGallery/index";
 import Features from "../components/Features";
 import Layout from "../components/Layout";
 
@@ -16,6 +17,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
+    <PortfolioGallery />
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -98,7 +100,7 @@ export const IndexPageTemplate = ({
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
                   </h3>
-                  <BlogRoll />
+                  {/* <BlogRoll /> */}
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more

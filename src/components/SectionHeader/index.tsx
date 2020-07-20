@@ -3,11 +3,19 @@ import cx from "classnames";
 import styles from "./index.module.scss";
 
 interface SectionHeaderProps {
-  classNames?: string;
+  className?: string;
 }
 
-const SectionHeader: FC<SectionHeaderProps> = ({ children, classNames }) => (
-  <h2 className={cx(classNames, styles.sectionHeader)}>{children}</h2>
+const SectionHeader: FC<SectionHeaderProps> = ({ children, className }) => (
+  <h2
+    className={cx(
+      className,
+      styles.sectionHeader,
+      "title is-1 has-text-weight-bold is-bold-light"
+    )}
+  >
+    {children}
+  </h2>
 );
 
 export { SectionHeader, SectionHeaderProps };

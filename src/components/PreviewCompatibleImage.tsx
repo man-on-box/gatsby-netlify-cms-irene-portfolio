@@ -28,4 +28,5 @@ const PreviewCompatibleImage: FC<PreviewCompatibleImageProps> = ({
   return null;
 };
 
+export { PreviewCompatibleImage };
 export default PreviewCompatibleImage;

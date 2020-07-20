@@ -1,0 +1,41 @@
+@import "src/scss/variables.scss";
+
+.portfolioWrapper {
+  position: relative;
+  height: 375px;
+}
+
+.portfolioContent {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.withOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(70, 40, 36, 0.25);
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.textWithBackground {
+  color: #ffffff;
+  background-color: $text-background-color;
+  box-shadow: $text-background-color 0.5rem 0px 0px,
+    $text-background-color -0.5rem 0px 0px;
+  z-index: 5;
+}
