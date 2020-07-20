@@ -27,6 +27,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Subheading", name: "subheading", widget: "text" }
       - { label: "Image", name: "image", widget: image }
+      - { label: Alt, name: alt, widget: string }
       - {
           label: "Left align image",
           name: "leftalignimage",

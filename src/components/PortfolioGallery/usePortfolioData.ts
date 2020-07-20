@@ -24,7 +24,7 @@ export const usePortfolioData = () => {
     graphql`
       query PortfolioItemQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { order: ASC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "portfolio-item" } } }
         ) {
           edges {
@@ -39,7 +39,7 @@ export const usePortfolioData = () => {
                 templateKey
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 500, quality: 80) {
+                    fluid(maxWidth: 500, quality: 85) {
                       ...GatsbyImageSharpFluid
                     }
                   }

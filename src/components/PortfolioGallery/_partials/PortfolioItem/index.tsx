@@ -1,9 +1,6 @@
 import React, { FC } from "react";
+import { navigate } from "gatsby";
 import cx from "classnames";
-import {
-  PreviewCompatibleImage,
-  PreviewCompatibleImageProps,
-} from "@components/PreviewCompatibleImage";
 import { GatsbyImageProps } from "gatsby-image";
 
 import styles from "./index.module.scss";
@@ -13,6 +10,7 @@ interface PortfolioItemProps {
   title: string;
   subheading: string;
   image: { childImageSharp: GatsbyImageProps };
+  slug: string;
 }
 
 const PortfolioItem: FC<PortfolioItemProps> = ({
@@ -20,26 +18,36 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   title,
   subheading,
   image,
-}) => {
-  image.childImageSharp;
-  return (
-    <div className={cx("column", className, styles.portfolioWrapper)}>
-      <div
-        className={styles.portfolioContent}
-        style={{
-          backgroundImage: `url(${
-            image.childImageSharp && !Array.isArray(image.childImageSharp.fluid)
-              ? image.childImageSharp?.fluid?.src
-              : image
-          })`,
-        }}
+  slug,
+}) => (
+  <div
+    className={cx("column", className, styles.portfolioWrapper)}
+    onClick={() => navigate(slug)}
+  >
+    <div
+      className={cx("px-6 py-6", styles.portfolioContent)}
+      style={{
+        backgroundImage: `url(${
+          image.childImageSharp && !Array.isArray(image.childImageSharp.fluid)
+            ? image.childImageSharp?.fluid?.src
+            : image
+        })`,
+      }}
+    >
+      <p
+        className={cx(
+          styles.textWithBackground,
+          "title is-4 has-text-weight-bold is-bold-light"
+        )}
       >
-        <div className={styles.overlay}></div>
-        <h3>{title}</h3>
-        <p>{subheading}</p>
-      </div>
+        {title}
+      </p>
+      <p className={cx(styles.textWithBackground, "subtitle is-6")}>
+        {subheading}
+      </p>
+      <div className={styles.overlay} />
     </div>
-  );
-};
+  </div>
+);
 
 export { PortfolioItem, PortfolioItemProps };

@@ -6,15 +6,17 @@ import { SectionHeader } from "@components/SectionHeader";
 import { ImageInfo } from "types/ImageInfo";
 import styles from "./index.module.scss";
 
-export interface AboutProps {
+interface PortfolioItemProps {
   title: string;
+  subheading: string;
   imageInfo: ImageInfo;
   content: string;
   contentComponent?: React.FC<any>;
 }
 
-const About: FC<AboutProps> = ({
+const PortfolioItem: FC<PortfolioItemProps> = ({
   title,
+  subheading,
   imageInfo,
   content,
   contentComponent,
@@ -26,10 +28,14 @@ const About: FC<AboutProps> = ({
       <div className="container">
         <div className="columns">
           <div className="column">
-            <div className="section">
-              <SectionHeader>{title}</SectionHeader>
-              <PageContent className="content" content={content} />
-            </div>
+            <SectionHeader className="has-text-centered">{title}</SectionHeader>
+            <p className={cx(styles.subheading, "subtitle is-4 mt-5")}>
+              {subheading}
+            </p>
+            <PageContent
+              className="content has-text-justified"
+              content={content}
+            />
           </div>
           <div className="column">
             <PreviewCompatibleImage imageInfo={imageInfo} />
@@ -40,4 +46,4 @@ const About: FC<AboutProps> = ({
   );
 };
 
-export { About };
+export { PortfolioItem, PortfolioItemProps };
