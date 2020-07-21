@@ -24,7 +24,7 @@ export const usePortfolioData = () => {
     graphql`
       query PortfolioItemQuery {
         allMarkdownRemark(
-          sort: { order: ASC, fields: [frontmatter___date] }
+          sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "portfolio-item" } } }
         ) {
           edges {
