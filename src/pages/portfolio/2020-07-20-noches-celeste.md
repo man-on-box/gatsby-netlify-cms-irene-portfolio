@@ -1,5 +1,6 @@
 ---
 templateKey: portfolio-item
+date: 2020-07-21T15:47:11.007Z
 title: Noches Celeste
 subheading: Live music and a specially tailored and magical menu for the night
 image: /img/15_nitceleste.webp
