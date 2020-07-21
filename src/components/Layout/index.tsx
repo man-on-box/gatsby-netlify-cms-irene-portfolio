@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import "../../scss/all.sass";
-import useSiteMetadata from "./SiteMetadata";
+import useSiteMetadata from "./useSiteMetadata";
 import { withPrefix } from "gatsby";
 
 const TemplateWrapper: FC = ({ children }) => {

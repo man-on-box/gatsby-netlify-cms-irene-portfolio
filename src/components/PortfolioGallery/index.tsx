@@ -9,7 +9,6 @@ const PortfolioGallery: FC = () => {
   const portfolioItems = usePortfolioData();
   const { getColumnSizeClassName } = getAlternatingColumnSizes();
 
-  console.log(portfolioItems);
   return (
     <div className={cx("section", styles.section)}>
       <div className="container">
