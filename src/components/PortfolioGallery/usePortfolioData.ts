@@ -20,41 +20,46 @@ export interface PortfolioItem {
 }
 
 export const usePortfolioData = () => {
-  const { allMarkdownRemark } = useStaticQuery(
-    graphql`
-      query PortfolioItemQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "portfolio-item" } } }
-        ) {
-          edges {
-            node {
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                subheading
-                templateKey
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 500, quality: 85) {
-                      ...GatsbyImageSharpFluid
+  // useStaticQuery cannot run in CMS Preview, hence try/catch
+  try {
+    const { allMarkdownRemark } = useStaticQuery(
+      graphql`
+        query PortfolioItemQuery {
+          allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___date] }
+            filter: { frontmatter: { templateKey: { eq: "portfolio-item" } } }
+          ) {
+            edges {
+              node {
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  subheading
+                  templateKey
+                  image {
+                    childImageSharp {
+                      fluid(maxWidth: 500, quality: 85) {
+                        ...GatsbyImageSharpFluid
+                      }
                     }
                   }
                 }
+                html
               }
-              html
             }
           }
         }
-      }
-    `
-  );
+      `
+    );
 
-  const nodeArray = allMarkdownRemark.edges as any[];
-  const mappedArray = nodeArray.map((obj) => obj.node) as PortfolioItem[];
+    const nodeArray = allMarkdownRemark.edges as any[];
+    const mappedArray = nodeArray.map((obj) => obj.node) as PortfolioItem[];
 
-  return mappedArray;
+    return mappedArray;
+  } catch (error) {
+    return [];
+  }
 };

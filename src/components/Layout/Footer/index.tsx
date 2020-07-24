@@ -1,46 +1,32 @@
 import React, { FC } from "react";
 import { Link } from "gatsby";
+import cx from "classnames";
+import { navLinks } from "@src/lib/navLinks";
 
-import logo from "@img/logo.svg";
-import facebook from "@img/social/facebook.svg";
-import instagram from "@img/social/instagram.svg";
-import twitter from "@img/social/twitter.svg";
-import vimeo from "@img/social/vimeo.svg";
+import mail from "@img/social/mail.svg";
+import linkedin from "@img/social/linkedin.svg";
+import github from "@img/github-icon.svg";
+
+import styles from "./index.module.scss";
 
 const Footer: FC = () => (
-  <footer className="footer has-background-black has-text-white-ter">
+  <footer className={cx("footer ", styles.footer)}>
     <div className="content has-text-centered">
-      <img src={logo} alt="Kaldi" style={{ width: "14em", height: "10em" }} />
-    </div>
-    <div className="content has-text-centered has-background-black has-text-white-ter">
-      <div className="container has-background-black has-text-white-ter">
-        <div style={{ maxWidth: "100vw" }} className="columns">
-          <div className="column is-4">
-            <section className="menu">
-              <ul className="menu-list">
-                <li>
-                  <Link to="/" className="navbar-item">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/about">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/products">
-                    Products
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/contact/examples">
-                    Form Examples
-                  </Link>
-                </li>
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            <section className="menu has-text-centered has-text-left-desktop">
+              <ul className={styles.menuList}>
+                {navLinks.map(({ label, to }) => (
+                  <li>
+                    <Link to={to} className="navbar-item is-inline-block">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
                 <li>
                   <a
-                    className="navbar-item"
+                    className="navbar-item is-inline-block"
                     href="/admin/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -51,53 +37,30 @@ const Footer: FC = () => (
               </ul>
             </section>
           </div>
-          <div className="column is-4">
-            <section>
-              <ul className="menu-list">
-                <li>
-                  <Link className="navbar-item" to="/blog">
-                    Latest Stories
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/contact">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </section>
+          <div className="column">
+            <div className={styles.social}>
+              <a
+                title="linkedIn"
+                href="https://www.linkedin.com/in/irenegalvez/"
+              >
+                <img src={linkedin} alt="LinkedIn" className={styles.icon} />
+              </a>
+              <a title="mail" href="mailto:galvezirene@gmail.com?subject=Hi!">
+                <img src={mail} alt="Mail" className={styles.icon} />
+              </a>
+            </div>
           </div>
-          <div className="column is-4 social">
-            <a title="facebook" href="https://facebook.com">
-              <img
-                src={facebook}
-                alt="Facebook"
-                style={{ width: "1em", height: "1em" }}
-              />
-            </a>
-            <a title="twitter" href="https://twitter.com">
-              <img
-                className="fas fa-lg"
-                src={twitter}
-                alt="Twitter"
-                style={{ width: "1em", height: "1em" }}
-              />
-            </a>
-            <a title="instagram" href="https://instagram.com">
-              <img
-                src={instagram}
-                alt="Instagram"
-                style={{ width: "1em", height: "1em" }}
-              />
-            </a>
-            <a title="vimeo" href="https://vimeo.com">
-              <img
-                src={vimeo}
-                alt="Vimeo"
-                style={{ width: "1em", height: "1em" }}
-              />
-            </a>
-          </div>
+        </div>
+        <div className="container has-text-grey has-text-centered has-text-right-desktop">
+          <small className="pr-1">Site built with Gatsby and NetlifyCMS</small>{" "}
+          <a
+            title="github"
+            href="https://github.com/man-on-box/gatsby-netlify-cms-irene-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={github} alt="github" className={styles.icon} />
+          </a>
         </div>
       </div>
     </div>

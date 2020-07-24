@@ -1,16 +1,8 @@
 import React, { FC, useState } from "react";
 import cx from "classnames";
 import { Link } from "gatsby";
+import { navLinks } from "@src/lib/navLinks";
 import styles from "./index.module.scss";
-
-const navbarLinks = [
-  { label: "My work", to: "/" },
-  { label: "Who is Irene?", to: "/about" },
-  { label: "Say hi", to: "/contact" },
-  // { label: "Products", to: "/products" },
-  // { label: "Blog", to: "/blog" },
-  // { label: "Form Examples", to: "/contact/examples" },
-];
 
 const Header: FC = () => {
   const [active, setActive] = useState(false);
@@ -51,7 +43,7 @@ const Header: FC = () => {
               styles.justifyContentCenter
             )}
           >
-            {navbarLinks.map(({ label, to }) => (
+            {navLinks.map(({ label, to }) => (
               <Link
                 key={label}
                 className="navbar-item"

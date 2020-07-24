@@ -13,6 +13,7 @@ const PortfolioGallery: FC = () => {
     <div className={cx("section", styles.section)}>
       <div className="container">
         <div className="columns is-multiline">
+          {portfolioItems.length < 1 && "No portfolio items to be rendered"}
           {portfolioItems.map(
             ({
               frontmatter: { title, subheading, image },
