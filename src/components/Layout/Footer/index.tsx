@@ -10,7 +10,7 @@ import github from "@img/github-icon.svg";
 import styles from "./index.module.scss";
 
 const Footer: FC = () => (
-  <footer className={cx("footer ", styles.footer)}>
+  <footer className={cx("section", styles.footer)}>
     <div className="content has-text-centered">
       <div className="container">
         <div className="columns">
@@ -42,6 +42,8 @@ const Footer: FC = () => (
               <a
                 title="linkedIn"
                 href="https://www.linkedin.com/in/irenegalvez/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <img src={linkedin} alt="LinkedIn" className={styles.icon} />
               </a>
