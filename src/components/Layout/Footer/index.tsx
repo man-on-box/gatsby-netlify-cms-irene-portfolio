@@ -18,7 +18,7 @@ const Footer: FC = () => (
             <section className="menu has-text-centered has-text-left-desktop">
               <ul className={styles.menuList}>
                 {navLinks.map(({ label, to }) => (
-                  <li>
+                  <li key={label}>
                     <Link to={to} className="navbar-item is-inline-block">
                       {label}
                     </Link>

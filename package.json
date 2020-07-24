@@ -1,8 +1,9 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
-  "version": "1.1.3",
-  "author": "Austin Green",
+  "name": "gatsby-netlify-cms-irene-portfolio",
+  "description": "Portfolio site built with Gatsby and NetlifyCMS",
+  "repository": "github:man-on-box/gatsby-netlify-cms-irene-portfolio",
+  "version": "1.0.0",
+  "author": "Oliver Hughes",
   "dependencies": {
     "bulma": "^0.9.0",
     "classnames": "^2.2.6",
