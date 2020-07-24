@@ -1,0 +1,27 @@
+@import "src/scss/variables.scss";
+
+.footer {
+  background-color: $footer-background-color;
+}
+
+.social {
+  padding: 0 2em 2em 2em;
+}
+.social a {
+  padding: 0.5em 0.5em 0.3em 0.5em;
+  border-radius: 1em;
+  background-color: $light-gray;
+  margin: 0.5em;
+  vertical-align: middle;
+  display: inline;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+}
+
+.menuList {
+  margin: 0 !important;
+  list-style: none !important;
+}
