@@ -36,7 +36,14 @@ collections:
           required: false,
         }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - {
+          label: "Gallery",
+          name: "galleryImages",
+          widget: "list",
+          summary: "{{fields.image}}",
+          field: { label: "Image", name: "image", widget: image },
+        }
 
   - name: "pages"
     label: "Pages"

@@ -1,15 +1,19 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import PreviewCompatibleImage from "@components/PreviewCompatibleImage";
+import { ImageGallery } from "@components/ImageGallery";
 import { Content } from "@components/Content";
 import { SectionHeader } from "@components/SectionHeader";
-import { ImageInfo } from "types/ImageInfo";
+import { ChildImageSharp, ImageInfo } from "types/ImageInfo";
 import styles from "./index.module.scss";
 
 interface PortfolioItemProps {
   title: string;
   subheading: string;
   imageInfo: ImageInfo;
+  galleryImages: {
+    childImageSharp: ChildImageSharp;
+  }[];
   content: string;
   contentComponent?: React.FC<any>;
 }
@@ -20,6 +24,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
   imageInfo,
   content,
   contentComponent,
+  galleryImages,
 }) => {
   const PageContent = contentComponent || Content;
 
@@ -42,6 +47,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({
           </div>
         </div>
       </div>
+      <ImageGallery galleryImages={galleryImages} />
     </section>
   );
 };

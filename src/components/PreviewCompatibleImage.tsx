@@ -4,12 +4,14 @@ import { ImageInfo } from "types/ImageInfo";
 
 export interface PreviewCompatibleImageProps {
   imageInfo: ImageInfo;
+  style?: React.CSSProperties;
 }
 
 const PreviewCompatibleImage: FC<PreviewCompatibleImageProps> = ({
   imageInfo,
+  style = {},
 }) => {
-  const imageStyle = { borderRadius: "5px" };
+  const imageStyle = { borderRadius: "5px", ...style };
   const { alt = "", childImageSharp, image } = imageInfo;
 
   if (typeof image === "object" && !!image.childImageSharp) {
