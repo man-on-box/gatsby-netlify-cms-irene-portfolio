@@ -9,7 +9,6 @@ const PortfolioItemPreview = ({ entry, widgetFor, toArray }) => {
       image,
     }));
 
-  console.log(galleryImages);
   return (
     <PortfolioItem
       title={entry.getIn(["data", "title"])}
