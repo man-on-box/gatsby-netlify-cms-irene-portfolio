@@ -20,7 +20,7 @@ const PortfolioItemPage = ({ data: { markdownRemark } }) => {
         subheading={frontmatter.subheading}
         imageInfo={imageInfo}
         content={html}
-        galleryImages={frontmatter.galleryImages}
+        galleryImages={frontmatter.galleryImages || []}
       />
     </Layout>
   );
