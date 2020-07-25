@@ -13,6 +13,7 @@ interface PortfolioItemProps {
   imageInfo: ImageInfo;
   galleryImages: {
     childImageSharp: ChildImageSharp;
+    image: string;
   }[];
   content: string;
   contentComponent?: React.FC<any>;

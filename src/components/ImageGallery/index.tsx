@@ -28,6 +28,7 @@ const ImageModal: FC<ImageModalProps> = ({ children, show, onHide }) => {
 interface ImageGalleryProps {
   galleryImages: {
     childImageSharp: ChildImageSharp;
+    image: string;
   }[];
 }
 
@@ -41,20 +42,18 @@ const ImageGallery: FC<ImageGalleryProps> = ({ galleryImages }) => {
     setShowModal(true);
   };
 
-  console.log(!!galleryImages && !!galleryImages.length);
-
   if (!galleryImages || !galleryImages.length) return null;
 
   return (
     <section className="section">
       <div className="container">
         <div className="columns is-multiline">
-          {galleryImages.map(({ childImageSharp }, i) => (
+          {galleryImages.map((image, i) => (
             <div key={i} className={cx("column", getColumnSizeClassName())}>
               <div onClick={() => showImage(i)}>
                 <PreviewCompatibleImage
                   style={{ height: "375px", cursor: "pointer" }}
-                  imageInfo={{ childImageSharp }}
+                  imageInfo={image}
                 />
               </div>
             </div>
@@ -64,7 +63,8 @@ const ImageGallery: FC<ImageGalleryProps> = ({ galleryImages }) => {
       <ImageModal show={showModal} onHide={() => setShowModal(false)}>
         <PreviewCompatibleImage
           imageInfo={{
-            childImageSharp: galleryImages[selectedImageIndex].childImageSharp,
+            childImageSharp: galleryImages[selectedImageIndex]?.childImageSharp,
+            image: galleryImages[selectedImageIndex],
           }}
         />
       </ImageModal>
