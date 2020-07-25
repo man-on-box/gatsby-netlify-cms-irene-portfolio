@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import { usePortfolioData } from "./usePortfolioData";
-import { getAlternatingColumnSizes } from "./lib/getAlternatingColumnSizes";
+import { getAlternatingColumnSizes } from "@src/lib/getAlternatingColumnSizes";
 import { PortfolioItem } from "./_partials/PortfolioItem";
 import styles from "./index.module.scss";
 

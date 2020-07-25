@@ -20,6 +20,7 @@ const PortfolioItemPage = ({ data: { markdownRemark } }) => {
         subheading={frontmatter.subheading}
         imageInfo={imageInfo}
         content={html}
+        galleryImages={frontmatter.galleryImages}
       />
     </Layout>
   );
@@ -42,6 +43,13 @@ export const aboutPageQuery = graphql`
           }
         }
         alt
+        galleryImages {
+          childImageSharp {
+            fluid(maxWidth: 500, quality: 85) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
