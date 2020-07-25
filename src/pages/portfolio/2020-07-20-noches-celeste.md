@@ -7,6 +7,11 @@ image: /img/15_nitceleste.webp
 alt: Noches Celeste
 tags:
   - brand
+galleryImages:
+  - /img/coffee-gear.png
+  - /img/coffee.png
+  - /img/meeting-space.png
+  - /img/tutorials.png
 ---
 Celeste is one of Familia Torres's most famous wine brands.
 
