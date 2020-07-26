@@ -3,6 +3,7 @@ import uploadcare from "netlify-cms-media-library-uploadcare";
 import cloudinary from "netlify-cms-media-library-cloudinary";
 
 import AboutPagePreview from "./preview-templates/AboutPagePreview";
+import ContactPagePreview from "./preview-templates/ContactPagePreview";
 import PortfolioItemPreview from "./preview-templates/PortfolioItemPreview";
 import IndexPagePreview from "./preview-templates/IndexPagePreview";
 
@@ -11,4 +12,5 @@ CMS.registerMediaLibrary(cloudinary);
 
 CMS.registerPreviewTemplate("index", IndexPagePreview);
 CMS.registerPreviewTemplate("about", AboutPagePreview);
+CMS.registerPreviewTemplate("contact", ContactPagePreview);
 CMS.registerPreviewTemplate("portfolio", PortfolioItemPreview);

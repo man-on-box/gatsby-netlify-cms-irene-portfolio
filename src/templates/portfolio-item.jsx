@@ -28,7 +28,7 @@ const PortfolioItemPage = ({ data: { markdownRemark } }) => {
 
 export default PortfolioItemPage;
 
-export const aboutPageQuery = graphql`
+export const PortfolioItemPageQuery = graphql`
   query PortfolioItemById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
