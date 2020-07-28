@@ -33,6 +33,7 @@
     "react-dom": "^16.8.4",
     "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.0.0",
+    "react-hook-form": "^6.1.0",
     "uuid": "^7.0.0"
   },
   "keywords": [

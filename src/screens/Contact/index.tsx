@@ -19,7 +19,7 @@ const Contact: FC<ContactProps> = ({ title, content, contentComponent }) => {
       <div className="container">
         <div className="columns">
           <div className="column is-half is-offset-one-quarter">
-            <div className="section has-text-centered">
+            <div className="mb-6 has-text-centered">
               <SectionHeader>{title}</SectionHeader>
               <PageContent className="content" content={content} />
             </div>
