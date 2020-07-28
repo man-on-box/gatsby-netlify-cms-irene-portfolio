@@ -1,3 +1,3 @@
 export { RecaptchaForm } from "./RecaptchaForm";
-export { Input, InputProps } from "./Input";
-export { Textarea, TextAreaProps } from "./Textarea";
+export { Input } from "./Input";
+export { Textarea } from "./Textarea";

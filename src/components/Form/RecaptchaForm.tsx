@@ -3,6 +3,8 @@ import cx from "classnames";
 import { useForm, UseFormOptions, SubmitHandler } from "react-hook-form";
 import Recaptcha from "react-google-recaptcha";
 
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY || "";
+
 type RecaptchaValue = {
   "g-recaptcha-response": string | null;
 };
@@ -11,32 +13,38 @@ interface RecaptchaFormProps<FormValues> extends UseFormOptions {
   formName: string;
   onSubmit: SubmitHandler<FormValues & RecaptchaValue>;
   defaultValues: FormValues;
+  disableSubmit?: boolean;
+  isSubmitting?: boolean;
   children: JSX.Element[];
 }
 
-const RecaptchaForm = <FormValues,>({
-  formName,
-  defaultValues,
-  children,
-  onSubmit,
-}: PropsWithChildren<RecaptchaFormProps<FormValues>>) => {
+const RecaptchaForm = <FormValues,>(
+  props: PropsWithChildren<RecaptchaFormProps<FormValues>>
+) => {
+  const {
+    formName,
+    defaultValues,
+    children,
+    onSubmit,
+    disableSubmit,
+    isSubmitting,
+  } = props;
   const { handleSubmit, setValue, register, errors } = useForm({
     defaultValues,
     mode: "onBlur",
   });
 
-  const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY || "";
+  const registerRecaptcha = () =>
+    register(
+      { name: "g-recaptcha-response" },
+      { required: "Check you're not a robot" }
+    );
 
   const handleRecaptcha = (token: string | null) =>
     setValue("g-recaptcha-response", token);
 
   useEffect(() => {
-    register(
-      {
-        name: "g-recaptcha-response",
-      },
-      { required: "Check you're not a robot" }
-    );
+    registerRecaptcha();
   }, []);
 
   return (
@@ -47,6 +55,7 @@ const RecaptchaForm = <FormValues,>({
       data-netlify-recaptcha="true"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <input type="hidden" name="form-name" value={formName} />
       {React.Children.map(children, (child) => {
         return child.props.name
           ? React.createElement(child.type, {
@@ -70,9 +79,9 @@ const RecaptchaForm = <FormValues,>({
 
       <div className="field has-text-centered">
         <button
-          className={cx("button is-black", false && "is-loading")}
+          className={cx("button is-black", isSubmitting && "is-loading")}
           type="submit"
-          disabled={false}
+          disabled={disableSubmit}
         >
           Send
         </button>
