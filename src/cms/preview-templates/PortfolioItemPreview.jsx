@@ -5,9 +5,7 @@ const PortfolioItemPreview = ({ entry, widgetFor, toArray }) => {
   const getGalleryImages = () => {
     const entries = entry.getIn(["data", "galleryImages"]);
     if (!entries) return [];
-    return entries.toArray().map((image) => ({
-      image,
-    }));
+    return entries.toArray();
   };
 
   const galleryImages = getGalleryImages();
