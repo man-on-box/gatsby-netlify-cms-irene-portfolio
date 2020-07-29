@@ -2,12 +2,15 @@ import React from "react";
 import { PortfolioItem } from "@screens/PortfolioItem/";
 
 const PortfolioItemPreview = ({ entry, widgetFor, toArray }) => {
-  const galleryImages = entry
-    .getIn(["data", "galleryImages"])
-    .toArray()
-    .map((image) => ({
+  const getGalleryImages = () => {
+    const entries = entry.getIn(["data", "galleryImages"]);
+    if (!entries) return [];
+    return entries.toArray().map((image) => ({
       image,
     }));
+  };
+
+  const galleryImages = getGalleryImages();
 
   return (
     <PortfolioItem
