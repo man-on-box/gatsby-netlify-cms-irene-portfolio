@@ -5,6 +5,9 @@ node_modules
 # Build directory
 public/
 static/admin/*.bundle.*
+# Development env vars
+.env.development
+# Misc
 .DS_Store
 yarn-error.log
 graphql-types.ts
