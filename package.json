@@ -31,7 +31,9 @@
     "prop-types": "^15.6.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.0.0",
+    "react-hook-form": "^6.1.0",
     "uuid": "^7.0.0"
   },
   "keywords": [
@@ -53,6 +55,7 @@
     "@types/node": "^14.0.23",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
+    "@types/react-google-recaptcha": "^2.1.0",
     "@types/react-helmet": "^6.0.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
