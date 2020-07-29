@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useForm, UseFormOptions, SubmitHandler } from "react-hook-form";
 import Recaptcha from "react-google-recaptcha";
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY || "";
+const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY || "no-key";
 
 type RecaptchaValue = {
   "g-recaptcha-response": string | null;
