@@ -3,18 +3,20 @@ import Img from "gatsby-image";
 import { ImageInfo } from "types/ImageInfo";
 
 export interface PreviewCompatibleImageProps {
-  imageInfo: ImageInfo;
+  imageInfo: ImageInfo | null;
   style?: React.CSSProperties;
 }
 
 const PreviewCompatibleImage: FC<PreviewCompatibleImageProps> = ({
-  imageInfo,
+  imageInfo = {},
   style = {},
 }) => {
+  if (!imageInfo) return null;
+
   const imageStyle = { borderRadius: "5px", ...style };
   const { alt = "", childImageSharp, image } = imageInfo;
 
-  if (typeof image === "object" && !!image.childImageSharp) {
+  if (!!image && typeof image === "object" && !!image.childImageSharp) {
     return (
       <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
     );
