@@ -15,6 +15,4 @@ We selected the wines from our existing portfolio and rebranded them under diffe
 
 The selection includes 'classics' like New Zealand Sauvignon Blanc, Piemonte Cortese or Argentinian Malbec.
 
-​
-
 I worked on the development of the concepts, naming and marketing support of the new brands.
