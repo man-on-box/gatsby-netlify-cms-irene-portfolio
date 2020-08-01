@@ -1,8 +1,8 @@
 # Portfolio site built with Gatsby & NetlifyCMS
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0cf49c32-bd47-4236-89ab-f832634cf394/deploy-status)](https://app.netlify.com/sites/cranky-gates-b6cb5c/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0cf49c32-bd47-4236-89ab-f832634cf394/deploy-status)](https://app.netlify.com/sites/iamirene/deploys)
 
-This repo contains a portfolio website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://cranky-gates-b6cb5c.netlify.app/)**.
+This repo contains a portfolio website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://iamirene.netlify.app/)**.
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
