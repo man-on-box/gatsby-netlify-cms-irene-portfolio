@@ -1,7 +1,7 @@
 ---
 templateKey: portfolio-item
 date: 2020-08-01T15:34:16.594Z
-title: WEBSITE DEVELOPMENT
+title: Website Development
 subheading: Managing the development of a complete new website for Boutinot Wines UK
 image: /img/boutinot-site-01.webp
 alt: boutinot-site-mockup
