@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import Contact from "../screens/Contact/";
@@ -9,6 +10,7 @@ const ContactPage = ({ data: { markdownRemark } }) => {
 
   return (
     <Layout>
+      <Helmet title="Say Hi" />
       <Contact
         contentComponent={HTMLContent}
         title={frontmatter.title}

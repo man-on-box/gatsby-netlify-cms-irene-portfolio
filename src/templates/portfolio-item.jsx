@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import { PortfolioItem } from "../screens/PortfolioItem/index.tsx";
@@ -14,6 +15,7 @@ const PortfolioItemPage = ({ data: { markdownRemark } }) => {
 
   return (
     <Layout>
+      <Helmet title={frontmatter.title} />
       <PortfolioItem
         contentComponent={HTMLContent}
         title={frontmatter.title}
