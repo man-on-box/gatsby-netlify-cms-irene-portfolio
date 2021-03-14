@@ -11,9 +11,12 @@ const TemplateWrapper: FC = ({ children }) => {
   return (
     <div>
       <Helmet>
-        <html lang="en" />
+        <html lang="en" prefix="og: http://ogp.me/ns#" />
         <title>{title}</title>
+
+        <meta property="og:title" content={title} />
         <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
 
         <link
           rel="apple-touch-icon"
