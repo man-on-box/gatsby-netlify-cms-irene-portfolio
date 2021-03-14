@@ -14,9 +14,7 @@ const TemplateWrapper: FC = ({ children }) => {
         <html lang="en" prefix="og: http://ogp.me/ns#" />
         <title>{title}</title>
 
-        <meta property="og:title" content={title} />
         <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
 
         <link
           rel="apple-touch-icon"
@@ -45,10 +43,12 @@ const TemplateWrapper: FC = ({ children }) => {
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
         <meta property="og:url" content="/" />
         <meta
+          name="image"
           property="og:image"
-          content={`${withPrefix("/")}img/og-image.jpg`}
+          content={`${withPrefix("/")}img/og-image.png`}
         />
       </Helmet>
       <Header />
